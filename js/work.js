@@ -3,15 +3,17 @@ const bankAccount = {
   owner: "anastasia",
   accountNo: 5492,
   balance: 1234,
-  deposit() {
+  deposit(amount) {
     this.balance += amount;
     return this.balance;
   },
-  withdraw() {
+  withdraw(amount) {
     this.balance -= amount;
     return this.balance;
   },
 };
+console.log(bankAccount.deposit(355));
+console.log(bankAccount.withdraw(29));
 
 //2.
 const weather = {
@@ -19,17 +21,19 @@ const weather = {
   interest: 80,
   courseWind: 10,
   lowerZero() {
-    return this.temperature < 0;
+    if (this.temperature < 0) {
+      console.log("температура сягнула нижче 0");
+    }
   },
   probingTemperature() {
     if (this.lowerZero()) {
-      console.log("температура сягнула нижче 0");
+      return "температура сягнула нижче 0";
     } else {
-      console.log("температура рівна 0 або вище за 0");
+      return "температура рівна 0 або вище за 0";
     }
   },
 };
-weather.probingTemperature();
+console.log(weather.probingTemperature());
 
 //3.
 const user = {
@@ -49,9 +53,9 @@ const movie = {
   title: "гіпотеза кохання",
   director: "алі гейзелвуд",
   year: 2020,
-  rating: 9.1,
+  rating: 7.1,
   highRating() {
-    if (this.score > 8) {
+    if (this.rating > 8) {
       return true;
     } else {
       return false;
